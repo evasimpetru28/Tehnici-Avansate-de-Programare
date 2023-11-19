@@ -1,16 +1,22 @@
-# This is a sample Python script.
+n = int(input())
+lista = [int(x) for x in input().split()]
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+posibil_castigator = None
+avantaj = 0
 
+for elem in lista:
+    if avantaj == 0:
+        posibil_castigator = elem
+        avantaj = 1
+    elif elem == posibil_castigator:
+        avantaj += 1
+    else:
+        avantaj -= 1
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+if avantaj == 0:
+    print("NU")
+else:
+    if lista.count(posibil_castigator) > n // 2:
+        print("DA " + str(posibil_castigator))
+    else:
+        print("NU")
